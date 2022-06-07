@@ -1,0 +1,42 @@
+{
+    "env": {
+        "myZephyrSourcePath": "/home/lauren/zephyrproject/zephyr",
+        "myZephyrSDKPath": "/home/lauren/zephyr-sdk-0.14.2/"
+    },
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${myZephyrSourcePath}/include/",
+                "${myZephyrSourcePath}/lib/libc/minimal/include/",
+                "${myZephyrSourcePath}/arch/xtensa/include/",
+                "${myZephyrSourcePath}/arch/arc/include/",
+                "${myZephyrSourcePath}/arch/nios2/include/",
+                "${myZephyrSourcePath}/arch/arm/include/",
+                "${myZephyrSourcePath}/arch/x86/include/",
+                "${myZephyrSourcePath}/arch/posix/include/",
+                "${myZephyrSourcePath}/arch/riscv/include/",
+                "${myZephyrSourcePath}/kernel/include",
+                "${myZephyrSourcePath}/lib/libc/minimal/include/",
+                "${myZephyrSourcePath}/lib/libc/newlib/include/",
+                "${myZephyrSourcePath}/subsys/testsuite/include/",
+                "${myZephyrSourcePath}/subsys/testsuite/ztest/include/",
+                "${myZephyrSourcePath}/subsys/bluetooth/controller/include/",
+                "${myZephyrSourcePath}/subsys/tracing/include/",
+                "${myZephyrSourcePath}/subsys/settings/include/",
+                "${myZephyrSourcePath}/subsys/mgmt/updatehub/include/",
+                "${workspaceFolder}/build/zephyr/include/generated/",
+                "${myZephyrSourcePath}/../modules/hal/xtensa/include"
+            ],
+            // "compilerPath": "/home/lauren/zephyr-sdk-0.14.2/x86_64-zephyr-elf/bin/x86_64-zephyr-elf-gcc",
+            "compilerPath": "/home/lauren/zephyr-sdk-0.14.2/xtensa-sample_controller_zephyr-elf/bin/xtensa-sample_controller_zephyr-elf-gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64",
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "compileCommands": "/home/lauren/zephyrproject/zephyr/build/compile_commands.json"
+            // west config build.cmake-args -- -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+        }
+    ],
+    "version": 4
+}

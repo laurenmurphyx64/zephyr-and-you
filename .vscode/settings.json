@@ -1,0 +1,12 @@
+{
+    "cmake.configureOnOpen": true,
+    "files.exclude": {
+        "twister*": true,
+        "*.rst": true
+    },
+    "files.associations": {
+        "log_core.h": "c",
+        "log_backend.h": "c",
+        "__assert.h": "c"
+    }
+}

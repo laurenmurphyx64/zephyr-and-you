@@ -1,0 +1,89 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "gdb arm",
+            "type": "cppdbg",
+            "request": "launch",
+            "targetArchitecture": "arm",
+            "program": "${workspaceFolder}/build/zephyr/zephyr.elf",
+            "miDebuggerServerAddress": "localhost:3333",
+            "miDebuggerPath": "/home/lauren/zephyr-sdk-0.14.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb"
+        },
+        {
+            "name": "gdb x86",
+            "type": "cppdbg",
+            "request": "launch",
+            "targetArchitecture": "x86",
+            "program": "${workspaceFolder}/build/zephyr/zephyr.elf",
+            "miDebuggerServerAddress": "localhost:1234",
+            "miDebuggerPath": "/home/lauren/zephyr-sdk-0.14.2/x86_64-zephyr-elf/bin/x86_64-zephyr-elf-gdb",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb"
+        },
+        {
+            "name": "gdb xtensa",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/zephyr/zephyr.elf",
+            "miDebuggerServerAddress": "localhost:1234",
+            "miDebuggerPath": "/home/lauren/zephyr-sdk-0.14.2/xtensa-sample_controller_zephyr-elf/bin/xtensa-sample_controller_zephyr-elf-gdb",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb"
+        },
+        {   // Useless without a sleep (e.g. k_msleep(10000)) or something else to hold
+            // the program still manually while starting up GDB server and GDB
+            // so it won't run past the breakpoint.
+            // (As VS Code doesn't support extended-remote target to allow restart)
+            "name": "esp32",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/zephyr/zephyr.elf",
+            "miDebuggerServerAddress": "localhost:3333",
+            "miDebuggerPath": "${env:HOME}/.espressif/tools/zephyr/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "hardwareBreakpoints": {
+                "stopAtConnect": true,
+                "require": true,
+                "limit": 32
+            }
+            // https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html#jtag-debugging-tip-where-breakpoints
+        },
+        // cd ~/.espressif/tools/zephyr/openocd-esp32
+        // bin/openocd -c 'set ESP32_ONLYCPU 1' -c 'set ESP32_RTOS zephyr' -f share/openocd/scripts/board/esp32-wrover-kit-3.3v.cfg -s tcl
+        // (Starts GDB)
+        {
+            "name": "gdb native_posix",
+            "type": "cppdbg",
+            "request": "launch",
+            "targetArchitecture": "x86",
+            "program": "${workspaceFolder}/build/zephyr/zephyr.elf",
+            "miDebuggerPath": "gdb",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb"
+        },
+    ]
+}
